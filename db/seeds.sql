@@ -18,7 +18,7 @@ INSERT INTO
         first_name,
         last_name,
         role_id,
-        manager_id,
+        manager_id
     
     )
     VALUES
@@ -30,4 +30,4 @@ INSERT INTO
     ('Riley', 'Hettrick', 6 , 6),
     ('Justin', 'Moore', 7 , null),
     ('Rebecca', 'Wang', 8, 8),
-    ('Austin', 'Sigsworth', 9, null),
+    ('Austin', 'Sigsworth', 9, null);

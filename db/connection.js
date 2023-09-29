@@ -1,18 +1,15 @@
-const mysql = reequire("mysq12");
+const mysql = require("mysql2");
 require("dotenv").config();
 
 const db = mysql.createConnection({
-    host: "localhost",
+  host: "127.0.0.1",
 
-    user: 
-    password:
-    database: 
-
+  user: process.env.DB_USER,
+  database: process.env.DB_NAME,
 });
 
-
-db.on("error", (err)=>{
-    console.log("- STATS Mysq12 connection died", err);
+db.on("error", (err) => {
+  console.log("- STATS Mysql2 connection died", err);
 });
 
-module.exports = db; 
+module.exports = db;
