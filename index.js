@@ -141,3 +141,13 @@ async function addEmployee() {
   console.log("New employee successfully added!");
   startApp();
 }
+
+async function addDepartment() {
+  let department = await db.query();
+}
+
+async function addRole() {
+  let role = await db.query();
+}
+
+async function updateEmployee() {}
