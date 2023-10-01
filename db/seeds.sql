@@ -22,12 +22,12 @@ INSERT INTO
     
     )
     VALUES
-    ('Maya', 'Nettath', 2, null),
-    ('Liam', 'Marincik', 3, null),
-    ('Nick', 'Deignan', 1, 1),
-    ('Steven', 'Rodriguez', 5, null),
-    ('Joshua', 'Kellog', 4, 4),
-    ('Riley', 'Hettrick', 6 , 6),
-    ('Justin', 'Moore', 7 , null),
-    ('Rebecca', 'Wang', 8, 8),
-    ('Austin', 'Sigsworth', 9, null);
+    ('Maya', 'Nettath', 2, 3),
+    ('Liam', 'Marincik', 3, 3),
+    ('Nick', 'Deignan', 1, null),
+    ('Steven', 'Rodriguez', 5, 5),
+    ('Joshua', 'Kellog', 4, null),
+    ('Riley', 'Hettrick', 6 , null),
+    ('Justin', 'Moore', 7 , 6),
+    ('Rebecca', 'Wang', 8, null),
+    ('Austin', 'Sigsworth', 9, 8);

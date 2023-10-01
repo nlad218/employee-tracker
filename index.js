@@ -151,7 +151,7 @@ async function addDepartment() {
       message: "What is the name of the new department?",
     },
   ]);
-  await db.query("Insert into department (department_id) values(?)", [
+  await db.query("Insert into department (name) values(?)", [
     answers.ndepartment,
   ]);
   console.log("New department successfully added!");
@@ -159,7 +159,9 @@ async function addDepartment() {
 }
 
 async function addRole() {
-  let role = await db.query("Select id as value from role");
+  const departments = await db.query(
+    "Select id as value, name from department"
+  );
   const answers = await inquirer.prompt([
     {
       type: "input",
@@ -178,9 +180,47 @@ async function addRole() {
       choices: departments,
     },
   ]);
-  await db.query("Insert into role () values (");
+  await db.query(
+    "INSERT INTO role (title, salary, department_id) VALUES (?, ?, ?)",
+    [answers.nrole, answers.nsalary, answers.departmentid]
+  );
   console.log("New role successfully added!");
   startApp();
 }
 
-async function updateEmployee() {}
+async function updateEmployee() {
+  const employees = await db.query(
+    "Select id as value, concat(first_name, ' ', last_name) as name from employee"
+  );
+  const roles = await db.query("Select id as value, title as name from role");
+  const employeeToUpdate = await inquirer.prompt([
+    {
+      type: "list",
+      name: "employeeId",
+      message: "Select the employee you want to update:",
+      choices: employees,
+    },
+  ]);
+  const newRole = await inquirer.prompt([
+    {
+      type: "list",
+      name: "roleId",
+      message: "Select the new role for the employee:",
+      choices: roles,
+    },
+  ]);
+  const newManager = await inquirer.prompt([
+    {
+      type: "list",
+      name: "managerId",
+      message: "Select the new manager for the employee:",
+      choices: employees,
+    },
+  ]);
+  await db.query(
+    "UPDATE employee SET role_id = ?, manager_id = ? WHERE id = ?",
+    [newRole.roleId, newManager.managerId, employeeToUpdate.employeeId]
+  );
+  console.log("Employee's role and manager updated successfully!");
+  startApp();
+}
