@@ -143,11 +143,44 @@ async function addEmployee() {
 }
 
 async function addDepartment() {
-  let department = await db.query();
+  let department = await db.query("Select id as value from department");
+  const answers = await inquirer.prompt([
+    {
+      type: "input",
+      name: "ndepartment",
+      message: "What is the name of the new department?",
+    },
+  ]);
+  await db.query("Insert into department (department_id) values(?)", [
+    answers.ndepartment,
+  ]);
+  console.log("New department successfully added!");
+  startApp();
 }
 
 async function addRole() {
-  let role = await db.query();
+  let role = await db.query("Select id as value from role");
+  const answers = await inquirer.prompt([
+    {
+      type: "input",
+      name: "nrole",
+      message: "What is the name of the role?",
+    },
+    {
+      type: "input",
+      name: "nsalary",
+      message: "What is the salary of the role?",
+    },
+    {
+      type: "list",
+      name: "departmentid",
+      message: "What department does the role belong to?",
+      choices: departments,
+    },
+  ]);
+  await db.query("Insert into role () values (");
+  console.log("New role successfully added!");
+  startApp();
 }
 
 async function updateEmployee() {}
