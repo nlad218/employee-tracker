@@ -42,4 +42,4 @@ If you want to see more of my work please visit me at [nlad218](https://github.c
 
 ## Video link
 
-![Alt text](</employee-tracker/assets/Screen Recording 2023-10-01 at 8.38.28 PM.mov>)
+![Alt text](<./assets/demo.mov>)
