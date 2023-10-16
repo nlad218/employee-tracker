@@ -42,4 +42,4 @@ If you want to see more of my work please visit me at [nlad218](https://github.c
 
 ## Video link
 
-![Alt text](<./assets/demo.mov>)
+[Video Demo](https://drive.google.com/file/d/1bl5bx8VUvKdwXjxaeh3SP-SjA5KbVDjJ/view?usp=share_link)
